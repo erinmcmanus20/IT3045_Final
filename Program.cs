@@ -2,6 +2,9 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddSwaggerDocument();
+builder.Services.AddMvc();
+builder.Services.AddMvc(options => options.EnableEndpointRouting = false);
 
 var app = builder.Build();
 
@@ -13,12 +16,18 @@ if (!app.Environment.IsDevelopment())
     app.UseHsts();
 }
 
+app.UseOpenApi();
+app.UseSwaggerUi3();
+app.UseMvc();
+
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
 
 app.UseAuthorization();
+
+
 
 app.MapControllerRoute(
     name: "default",
