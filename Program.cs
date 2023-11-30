@@ -1,10 +1,25 @@
+using IT3045_Final.Data;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
+
 var builder = WebApplication.CreateBuilder(args);
+//public IConfiguration Configuration { get; }
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 builder.Services.AddSwaggerDocument();
-builder.Services.AddMvc();
 builder.Services.AddMvc(options => options.EnableEndpointRouting = false);
+
+
+//builder.Services.AddDbContext<TeamMemberContext>(options =>
+    //options.UseSqlServer(Configuration.GetConnectionString("TeamMemberContext")));
+//builder.Services.AddDbContext<TeamMemberContext>(options =>
+    //options.UseSqlServer(GetConnectionString("TeamMemberContext")));
+
+//public static string? public static string? GetConnectionString (this Microsoft.Extensions.Configuration.IConfiguration configuration, string name);;
+
+
 
 var app = builder.Build();
 
