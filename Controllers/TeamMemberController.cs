@@ -47,8 +47,34 @@ public class TeamMemberController : Controller
         if (member == null)
             return NotFound(id);
         
-        
         _context.RemoveMemberById(id); 
+        
         return Ok(member);  
     }
+
+    [HttpPut]
+    public IActionResult Put(TeamMember member)
+    {
+
+        var result = _context.UpdateMember(member);
+        if (member == null)
+            return NotFound(member);
+
+        return Ok(member);  
+
+        
+    }
+
+    [HttpPost]
+    public IActionResult Post(TeamMember member)
+    {
+        var result = _context.AddMember(member);
+
+        if (result == null)
+            return StatusCode(500, "Team Already Exists");
+        
+        return Ok(member);
+
+    }
+
 }
