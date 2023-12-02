@@ -30,24 +30,30 @@ public class TeamMemberController : Controller
 
     [HttpGet("id")]
 
-    public IActionResult GetById(int id)
+    public IActionResult GetById(int? id)
     {
-        var member = _context.GetMemberById(id);
+        if (id == null || id == 0)
+            return Ok(_context.GetAllMembers());
+        
+        var member = _context.GetMemberById((int)id);
+
         if (member == null)
             return NotFound(id);
         
         return Ok(member);
     }
 
-    [HttpDelete("id")]
-    public IActionResult Delete(int id)
+    [HttpDelete]
+    public IActionResult Delete(int? id)
     {
-        var member = _context.GetMemberById(id);
+        if (id == null || id == 0)
+            return Ok(_context.GetAllMembers());
+        var member = _context.GetMemberById((int)id);
 
         if (member == null)
-            return NotFound(id);
+            return NotFound((int)id);
         
-        _context.RemoveMemberById(id); 
+        _context.RemoveMemberById((int)id); 
         
         return Ok(member);  
     }

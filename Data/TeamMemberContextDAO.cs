@@ -46,7 +46,7 @@ namespace IT3045_Final.Data
 
         public TeamMember UpdateMember(TeamMember member)
         {
-            var memberToUpdate = this.GetMemberById(member.Id);
+            var memberToUpdate = this.GetMemberById((int)member.Id);
             if (memberToUpdate == null) 
                 return null;
             
