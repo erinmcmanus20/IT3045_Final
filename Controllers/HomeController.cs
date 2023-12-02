@@ -18,10 +18,10 @@ public class HomeController : Controller
         return View();
     }
 
-    public IActionResult TeamMember()
+    /* public IActionResult TeamMember()
     {
         return View();
-    }
+    } */
 
     public IActionResult Privacy()
     {

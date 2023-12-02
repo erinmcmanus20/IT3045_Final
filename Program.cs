@@ -1,46 +1,28 @@
 using IT3045_Final.Data;
+using IT3045_Final.Interfaces;
+
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
+
 using Microsoft.Extensions.Configuration;
 
 var builder = WebApplication.CreateBuilder(args);
-//public IConfiguration Configuration { get; }
-
-// Add services to the container.
-builder.Services.AddControllersWithViews();
-builder.Services.AddSwaggerDocument();
-builder.Services.AddMvc(options => options.EnableEndpointRouting = false);
-
-
-//builder.Services.AddDbContext<TeamMemberContext>(options =>
-    //options.UseSqlServer(Configuration.GetConnectionString("TeamMemberContext")));
-//builder.Services.AddDbContext<TeamMemberContext>(options =>
-    //options.UseSqlServer(GetConnectionString("TeamMemberContext")));
-
-//public static string? public static string? GetConnectionString (this Microsoft.Extensions.Configuration.IConfiguration configuration, string name);;
-
-
+var startup = new IT3045_Final.Startup(builder.Configuration);
+startup.ConfigureServices(builder.Services);
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
-if (!app.Environment.IsDevelopment())
-{
-    app.UseExceptionHandler("/Home/Error");
-    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
-    app.UseHsts();
-}
+// Add services to the container.
+// builder.Services.AddControllersWithViews();
+// builder.Services.AddSwaggerDocument();
+// builder.Services.AddMvc(options => options.EnableEndpointRouting = false);
+ startup.Configure(app, builder.Environment);
 
-app.UseOpenApi();
-app.UseSwaggerUi3();
-app.UseMvc();
 
-app.UseHttpsRedirection();
-app.UseStaticFiles();
 
-app.UseRouting();
 
-app.UseAuthorization();
+
+
 
 
 

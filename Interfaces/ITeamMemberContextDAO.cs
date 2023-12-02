@@ -11,5 +11,7 @@ namespace IT3045_Final.Interfaces
     public interface ITeamMemberContextDAO
     {
         List<TeamMember> GetAllMembers();
+        TeamMember GetMemberById(int id);
+        TeamMember RemoveMemberById(int id);
     }
 }

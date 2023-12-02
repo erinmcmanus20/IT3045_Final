@@ -28,15 +28,27 @@ public class TeamMemberController : Controller
 
     }
 
-    //[HttpGet("id")]
+    [HttpGet("id")]
 
-    // public IActionResult GetById(int id)
-    // {
-    //     var member = _context.GetMemberbyId(id);
-    //     if (member == null)
-    //         return NotFound(id);
+    public IActionResult GetById(int id)
+    {
+        var member = _context.GetMemberById(id);
+        if (member == null)
+            return NotFound(id);
         
-    //     return Ok(member);
-    // }
+        return Ok(member);
+    }
 
+    [HttpDelete("id")]
+    public IActionResult Delete(int id)
+    {
+        var member = _context.GetMemberById(id);
+
+        if (member == null)
+            return NotFound(id);
+        
+        
+        _context.RemoveMemberById(id); 
+        return Ok(member);  
+    }
 }
