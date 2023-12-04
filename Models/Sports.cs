@@ -1,12 +1,12 @@
 namespace IT3045_Final.Models
 {
-  public class StudentSports
+  public class Sports
   {
       public int Id { get; set; }
-      public int StudentId? { get; set; }  
-      public string SportName? { get; set; }
-      public string Position? { get; set; }
-      public int YearJoined? { get; set; }
+      public string TeamMemberFullName { get; set; }
+      public DateTime Birthdate { get; set; }
+      public string CollegeProgram { get; set; }
+      public string YearInProgram { get; set; }
       
   }
 }
