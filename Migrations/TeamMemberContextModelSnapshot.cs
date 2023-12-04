@@ -61,10 +61,10 @@ namespace IT3045Final.Migrations
                         new
                         {
                             Id = 2,
-                            Birthdate = " ",
+                            Birthdate = "10/10/2002 ",
                             FullName = "Nivedha Balasubramanian",
-                            Program = " ",
-                            Year = " "
+                            Program = "IT Software Development",
+                            Year = "3rd"
                         },
                         new
                         {
