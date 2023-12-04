@@ -37,6 +37,13 @@ namespace IT3045_Final
                 options.UseSqlServer(Configuration.GetConnectionString("TeamMemberContext"),
                 options => options.EnableRetryOnFailure()));
             services.AddScoped<ITeamMemberContextDAO, TeamMemberContextDAO>();   
+
+            services.AddDbContext<BookContext>(options =>
+            options.UseSqlServer(Configuration.GetConnectionString("BookContext"),
+            options => options.EnableRetryOnFailure()));
+
+            services.AddControllers(); 
+            services.AddScoped<IBookContextDAO, BookContextDAO>();
         }
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
@@ -51,6 +58,13 @@ namespace IT3045_Final
                 var context = serviceScope.ServiceProvider.GetService<TeamMemberContext>();
                 context.Database.Migrate();
             }
+
+            using (var serviceScope = app.ApplicationServices.GetRequiredService<IServiceScopeFactory>().CreateScope())
+            {
+                var bookContext = serviceScope.ServiceProvider.GetService<BookContext>();
+                bookContext.Database.Migrate();
+            }
+
 
             app.UseOpenApi();
             app.UseSwaggerUi3();
