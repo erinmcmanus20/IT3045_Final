@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "c:\\Users\\erinm\\coreapps\\IT3045_Final\\IT3045_Final\\IT3045_Final.csproj": {}
+    "C:\\Users\\erinm\\coreapps\\IT3045_Final\\IT3045_Final\\IT3045_Final.csproj": {}
   },
   "projects": {
-    "c:\\Users\\erinm\\coreapps\\IT3045_Final\\IT3045_Final\\IT3045_Final.csproj": {
+    "C:\\Users\\erinm\\coreapps\\IT3045_Final\\IT3045_Final\\IT3045_Final.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\Users\\erinm\\coreapps\\IT3045_Final\\IT3045_Final\\IT3045_Final.csproj",
+        "projectUniqueName": "C:\\Users\\erinm\\coreapps\\IT3045_Final\\IT3045_Final\\IT3045_Final.csproj",
         "projectName": "IT3045_Final",
-        "projectPath": "c:\\Users\\erinm\\coreapps\\IT3045_Final\\IT3045_Final\\IT3045_Final.csproj",
+        "projectPath": "C:\\Users\\erinm\\coreapps\\IT3045_Final\\IT3045_Final\\IT3045_Final.csproj",
         "packagesPath": "C:\\Users\\erinm\\.nuget\\packages\\",
-        "outputPath": "c:\\Users\\erinm\\coreapps\\IT3045_Final\\IT3045_Final\\obj\\",
+        "outputPath": "C:\\Users\\erinm\\coreapps\\IT3045_Final\\IT3045_Final\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
