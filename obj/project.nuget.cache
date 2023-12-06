@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "yxsFsf6QqY1cOmJHiUttcEv2ajs1aUNj/xp+cSEiLbtoPfIFW+Lcu3Hqkt7RY+Ff8HGuVxBrAIFUNwHfQuApXQ==",
+  "dgSpecHash": "Gg8hrfuAJH2A0bZmwzf/xvwsGnWSGadW8J8h5Jq3MwCAmt5Rf1yWOvgquDvgQVuCAmJNL17eexbBAbh+gstoTg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\erinm\\coreapps\\IT3045_Final\\IT3045_Final\\IT3045_Final.csproj",
+  "projectFilePath": "c:\\Users\\erinm\\coreapps\\IT3045_Final\\IT3045_Final\\IT3045_Final.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\erinm\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
     "C:\\Users\\erinm\\.nuget\\packages\\azure.identity\\1.6.0\\azure.identity.1.6.0.nupkg.sha512",

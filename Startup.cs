@@ -78,7 +78,7 @@ namespace IT3045_Final
             using (var serviceScope = app.ApplicationServices.GetRequiredService<IServiceScopeFactory>().CreateScope())
             {
                 var baseballteamcontext = serviceScope.ServiceProvider.GetService<BaseballTeamContext>();
-                context.Database.Migrate();
+                baseballteamcontext.Database.Migrate();
             }
 
             using (var serviceScope = app.ApplicationServices.GetRequiredService<IServiceScopeFactory>().CreateScope())
