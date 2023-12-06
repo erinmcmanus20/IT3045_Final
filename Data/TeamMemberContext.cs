@@ -9,7 +9,6 @@ namespace IT3045_Final.Data
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
-            Console.Write("creating members");
             builder.Entity<TeamMember>().HasData(
                 
                 new TeamMember {Id = 1, FullName = "Erin McManus", Birthdate = "4/10/2004", Program = "Mechanical Engineering", Year = "2nd"},

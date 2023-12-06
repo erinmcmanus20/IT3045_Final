@@ -94,14 +94,12 @@ namespace IT3045_Final.Data
 
                 };
                 _context.TeamMembers.Add(newMember);
-                Console.WriteLine("added member");
                 _context.SaveChanges();
                 return member;
 
             }
             catch(Exception)
             {
-                Console.WriteLine("Caught Exception");
                 return null;
             }
         }
