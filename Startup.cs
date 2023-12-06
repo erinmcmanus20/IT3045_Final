@@ -49,6 +49,11 @@ namespace IT3045_Final
                 options.UseSqlServer(Configuration.GetConnectionString("BaseballTeamContext"),
                 options => options.EnableRetryOnFailure()));
             services.AddScoped<IBaseballTeamContextDAO, BaseballTeamContextDAO>();  
+
+            services.AddDbContext<SportsContext>(options =>
+                options.UseSqlServer(Configuration.GetConnectionString("SportsContext"),
+                options => options.EnableRetryOnFailure()));
+            services.AddScoped<ISportsContextDAO, SportsContextDAO>();   
         }
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
@@ -76,6 +81,11 @@ namespace IT3045_Final
                 context.Database.Migrate();
             }
 
+            using (var serviceScope = app.ApplicationServices.GetRequiredService<IServiceScopeFactory>().CreateScope())
+            {
+                var sportsContext = serviceScope.ServiceProvider.GetService<SportsContext>();
+                sportsContext.Database.Migrate();
+            }
 
             app.UseOpenApi();
             app.UseSwaggerUi3();

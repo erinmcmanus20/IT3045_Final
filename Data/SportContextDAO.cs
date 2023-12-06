@@ -6,9 +6,9 @@ using IT3045_Final.Models;
 
 namespace IT3045_Final.Data
 {
-    public class SportsContextDAO : SportsContextInterfaceDAO
+    public class SportsContextDAO : ISportsContextDAO
     {
-        private SportsContextDAO _context;
+        private SportsContext _context;
 
         public SportsContextDAO(SportsContext context)
         {
@@ -26,7 +26,7 @@ namespace IT3045_Final.Data
 
         }
 
-        public Sports RemoveTeamMemberById(int id)
+        public Sports DeleteSports(int id)
         {
             var member = this.GetTeamMemberById(id);
             if (member == null) 
@@ -46,7 +46,7 @@ namespace IT3045_Final.Data
 
         public Sports UpdateTeamMember(Sports member)
         {
-            var memberToUpdate = this.GetSportsMemberById((int)member.Id);
+            var memberToUpdate = this.GetTeamMemberById((int)member.Id);
             if (memberToUpdate == null) 
                 return null;
             

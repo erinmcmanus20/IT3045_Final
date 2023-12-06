@@ -13,9 +13,9 @@ namespace IT3045_Final.Controllers;
 public class SportsController : Controller
 {
     private readonly ILogger<SportsController> _logger;
-    private readonly SportsContextDAO _context;
+    private readonly ISportsContextDAO _context;
 
-    public SportsController(ILogger<SportsController> logger, SportsContextDAO context)
+    public SportsController(ILogger<SportsController> logger, ISportsContextDAO context)
     {
         _logger = logger;
         _context = context;
@@ -53,7 +53,7 @@ public class SportsController : Controller
         if (sports == null)
             return NotFound((int)id);
         
-        _context.RemoveTeamMemberById((int)id); 
+        _context.DeleteSports((int)id); 
         
         return Ok(sports);  
     }
