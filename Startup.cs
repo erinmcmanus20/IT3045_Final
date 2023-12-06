@@ -44,6 +44,11 @@ namespace IT3045_Final
 
             services.AddControllers(); 
             services.AddScoped<IBookContextDAO, BookContextDAO>();
+
+             services.AddDbContext<BaseballTeamContext>(options =>
+                options.UseSqlServer(Configuration.GetConnectionString("BaseballTeamContext"),
+                options => options.EnableRetryOnFailure()));
+            services.AddScoped<IBaseballTeamContextDAO, BaseballTeamContextDAO>();  
         }
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
@@ -63,6 +68,12 @@ namespace IT3045_Final
             {
                 var bookContext = serviceScope.ServiceProvider.GetService<BookContext>();
                 bookContext.Database.Migrate();
+            }
+
+            using (var serviceScope = app.ApplicationServices.GetRequiredService<IServiceScopeFactory>().CreateScope())
+            {
+                var baseballteamcontext = serviceScope.ServiceProvider.GetService<BaseballTeamContext>();
+                context.Database.Migrate();
             }
 
 
